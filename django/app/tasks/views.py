@@ -10,13 +10,13 @@ def index(request):
 @require_http_methods(["POST"])
 def trigger_workflow(request: request.HttpRequest):
     message = request.POST.get('message', '')
-    input = {"message": message}
 
-    workflow_run = hatchet.event.push(
-        event_key="django-example-event",
-        payload=input,
-    )
+    for i in range(100, 1, -5):
+        workflow_run = hatchet.event.push(
+            event_key="django-example-event",
+            payload={"x": i},
+        )
 
     return JsonResponse({
-        "workflow_id": workflow_run.eventId,
+        "workflow_id": "salam",
     })
