@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,6 +21,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-q+0igzc!v3a04%)rt62b_b0$$6p%s3t(meo3_o_%(h_zwkqva^"
+
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
+HATCHET_CLIENT_TOKEN = os.environ.get("HATCHET_CLIENT_TOKEN", "TOKEN")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
